@@ -1,0 +1,82 @@
+<?php echo $before_widget; ?>
+<?php echo $before_title . $title . $after_title ?>
+
+<div class="bf3infobox-widget" style="text-align: center">
+<p>
+    <?php if(isset($options['display_playername'])) : ?>
+        <a href="http://bf3stats.com/stats_<?php echo strtolower($data['plat']) ?>/<?php echo $data['name'] ?>/"
+           target="_blank"><img src="http://files.bf3stats.com/img/bf3/<?php echo $data['stats']['rank']['img_medium'] ?>"
+         title="Rank <?php echo $data['stats']['rank']['nr'] ?>"
+         style="box-shadow: none; margin-top: 5px;"></a>
+    <?php else: ?>
+        <img src="http://files.bf3stats.com/img/bf3/<?php echo $data['stats']['rank']['img_medium'] ?>"
+         title="Rank <?php echo $data['stats']['rank']['nr'] ?>"
+         style="box-shadow: none; margin-top: 5px;">
+    <?php endif; ?>
+    <br>
+
+    <?php echo $data['stats']['rank']['name'] ?><br>
+
+    <?php if(isset($options['display_playername'])) : ?>
+        <?php echo $data['name'] ?> -
+    <?php endif; ?>
+
+    Rank <?php echo $data['stats']['rank']['nr'] ?>
+
+    <?php if(isset($options['display_platform'])) : ?>
+        - <?php echo strtoupper($data['plat']) ?>
+    <?php endif; ?>
+</p>
+<?php if(isset($options['display_generalstats']) OR isset($options['display_tillnextrank'])) : ?>
+    <table>
+
+    <?php if(isset($options['display_tillnextrank'])) : ?>
+        <tr class="odd">
+            <td colspan="5">Progress:
+                <?php $rankscore = $data['stats']['nextranks'][0]['score'] - $data['stats']['rank']['score']; ?>
+                <?php echo round(($rankscore - $data['stats']['nextranks'][0]['left']) / ($rankscore / 100), 0); ?>%,
+                <?php echo $data['stats']['nextranks'][0]['left'] ?> left
+            </td>
+        </tr>
+    <?php endif; ?>
+
+    <?php if(isset($options['display_generalstats'])) : ?>
+        <tr>
+            <td>K/D:</td>
+            <td><?php echo round($data['stats']['global']['kills'] / $data['stats']['global']['deaths'], 2); ?></td>
+
+            <td>&nbsp;</td>
+            <td>W/L:</td>
+            <td><?php echo round($data['stats']['global']['wins'] / $data['stats']['global']['losses'], 2); ?></td>
+        </tr>
+
+        <tr class="odd">
+            <td>Acc:</td>
+            <td><?php
+                // echo round($data['stats']['global']['hits'] / ($data['stats']['global']['shots'] / 100 ), 2);
+                // using team us+ru hits/shots for infantry accuracy (like battlelog) instead of global accuracy
+                echo round(
+                    ($data['stats']['teams']['US']['hits'] + $data['stats']['teams']['RU']['hits']) * 100
+                    / ($data['stats']['teams']['US']['shots'] + $data['stats']['teams']['RU']['shots'])
+                    , 2);
+                ?>%</td>
+
+            <td>&nbsp;</td>
+
+            <td>S/M:</td>
+            <td><?php echo round($data['stats']['scores']['score'] / ($data['stats']['global']['time'] / 60 ), 2); ?></td>
+        </tr>
+    <?php endif; ?>
+
+    </table>
+<?php endif; ?>
+
+
+    <?php if(isset($options['display_playername'])) : ?>
+    <p><a href="http://bf3stats.com/stats_<?php echo strtolower($data['plat']) ?>/<?php echo $data['name'] ?>/"
+               target="_blank">more statistics</a></p>
+    <?php endif; ?>
+
+</div>
+
+<?php echo $after_widget; ?>
