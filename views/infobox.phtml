@@ -5,13 +5,13 @@
 <p>
     <?php if(isset($options['display_playername'])) : ?>
         <a href="http://bf3stats.com/stats_<?php echo strtolower($data['plat']) ?>/<?php echo $data['name'] ?>/"
-           target="_blank"><img src="http://files.bf3stats.com/img/bf3/<?php echo $data['stats']['rank']['img_medium'] ?>"
+           target="_blank"><img src="<?= plugins_url( 'img/'.$data['stats']['rank']['img_medium'] , dirname(__FILE__) ) ?>"
          title="Rank <?php echo $data['stats']['rank']['nr'] ?>"
-         style="box-shadow: none; margin-top: 5px;"></a>
+         style="margin-top: 5px;"></a>
     <?php else: ?>
-        <img src="http://files.bf3stats.com/img/bf3/<?php echo $data['stats']['rank']['img_medium'] ?>"
+        <img src="<?= plugins_url( 'img/'.$data['stats']['rank']['img_medium'] , dirname(__FILE__) ) ?>"
          title="Rank <?php echo $data['stats']['rank']['nr'] ?>"
-         style="box-shadow: none; margin-top: 5px;">
+         style="margin-top: 5px;">
     <?php endif; ?>
     <br>
 
@@ -27,11 +27,22 @@
         - <?php echo strtoupper($data['plat']) ?>
     <?php endif; ?>
 </p>
+
+<!-- not ready yet
+    <table>
+        <tr>
+            <td>
+                <img src="http://files.bf3stats.com/img/<?= $data['country_img'] ?>" alt="<?= $data['country_name'] ?>" title="<?= $data['country_name'] ?>">
+            </td>
+        </tr>
+    </table>
+-->
+
 <?php if(isset($options['display_generalstats']) OR isset($options['display_tillnextrank'])) : ?>
     <table>
 
     <?php if(isset($options['display_tillnextrank'])) : ?>
-        <tr class="odd">
+        <tr>
             <td colspan="5">Progress:
                 <?php $rankscore = $data['stats']['nextranks'][0]['score'] - $data['stats']['rank']['score']; ?>
                 <?php echo round(($rankscore - $data['stats']['nextranks'][0]['left']) / ($rankscore / 100), 0); ?>%,
@@ -40,18 +51,30 @@
         </tr>
     <?php endif; ?>
 
+
     <?php if(isset($options['display_generalstats'])) : ?>
-        <tr>
-            <td>K/D:</td>
+        <tr class="odd">
+            <td>
+                <img src="<?= plugins_url( 'img/misc/Mp_Main_KillsDeathsRatio_bk.png' , dirname(__FILE__) ) ?>"
+                     alt="Kill/Death Ratio" title="Kill/Death Ratio" width="24" style="max-width: 24px">
+            </td>
             <td><?php echo round($data['stats']['global']['kills'] / $data['stats']['global']['deaths'], 2); ?></td>
 
             <td>&nbsp;</td>
-            <td>W/L:</td>
+
+            <td>
+                <img src="<?= plugins_url( 'img/misc/Mp_WLR_Win_Loss_Ratio_bk.png' , dirname(__FILE__) ) ?>"
+                     alt="Win/Loss Ratio" title="Win/Loss Ratio" width="24" style="max-width: 24px">
+            </td>
             <td><?php echo round($data['stats']['global']['wins'] / $data['stats']['global']['losses'], 2); ?></td>
         </tr>
 
-        <tr class="odd">
-            <td>Acc:</td>
+
+        <tr>
+            <td>
+                <img src="<?= plugins_url( 'img/misc/Mp_Accuracy_Accuracy_bk.png' , dirname(__FILE__) ) ?>"
+                     alt="Accuracy" title="Accuracy" width="24" style="max-width: 24px">
+            </td>
             <td><?php
                 // echo round($data['stats']['global']['hits'] / ($data['stats']['global']['shots'] / 100 ), 2);
                 // using team us+ru hits/shots for infantry accuracy (like battlelog) instead of global accuracy
@@ -63,8 +86,28 @@
 
             <td>&nbsp;</td>
 
-            <td>S/M:</td>
+            <td>
+                <img src="<?= plugins_url( 'img/misc/Mp_Main_ScorePerMinute_bk.png' , dirname(__FILE__) ) ?>"
+                     alt="Score per Minute" title="Score per Minute" width="24" style="max-width: 24px">
+            </td>
             <td><?php echo round($data['stats']['scores']['score'] / ($data['stats']['global']['time'] / 60 ), 2); ?></td>
+        </tr>
+
+
+        <tr class="odd">
+            <td>
+                <img src="<?= plugins_url( 'img/misc/Mp_Kill_Streak_Kill_Streak_bk.png' , dirname(__FILE__) ) ?>"
+                     alt="Longest Kill Streak" title="Longest Kill Streak" width="24" style="max-width: 24px">
+            </td>
+            <td><?php echo $data['stats']['global']['killstreakbonus']; ?></td>
+
+            <td>&nbsp;</td>
+
+            <td>
+                <img src="<?= plugins_url( 'img/misc/Mp_Marksman_Longest_Headshot_bk.png' , dirname(__FILE__) ) ?>"
+                     alt="Longest Headshot" title="Longest Headshot" width="24" style="max-width: 24px">
+            </td>
+            <td><?php echo $data['stats']['global']['longesths'] ?>m</td>
         </tr>
     <?php endif; ?>
 
