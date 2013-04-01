@@ -1,5 +1,5 @@
 <p>
-    <label for="<?php echo $this->get_field_id('title'); ?>">Infobox Title:</label>
+    <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Infobox Title', 'bf3infobox'); ?>:</label>
     <input class="widefat"
        id="<?php echo $this->get_field_id('title'); ?>"
        name="<?php echo $this->get_field_name('title'); ?>"
@@ -9,7 +9,7 @@
 </p>
 
 <p>
-    <label for="<?php echo $this->get_field_id('playername'); ?>">Playername:</label>
+    <label for="<?php echo $this->get_field_id('playername'); ?>"><?php _e('Playername', 'bf3infobox'); ?>:</label>
     <input class="widefat"
        id="<?php echo $this->get_field_id('playername'); ?>"
        name="<?php echo $this->get_field_name('playername'); ?>"
@@ -19,7 +19,7 @@
 </p>
 
 <p>
-    <label for="<?php echo $this->get_field_id('platform'); ?>">Platform:</label><br>
+    <label for="<?php echo $this->get_field_id('platform'); ?>"><?php _e('Platform', 'bf3infobox'); ?>:</label><br>
     <select id="" id="<?php echo $this->get_field_id('platform'); ?>" name="<?php echo $this->get_field_name('platform'); ?>">
         <option value="pc" <?php echo ($platform == 'pc') ? 'selected' : '';?>>PC</option>
         <option value="ps3" <?php echo ($platform == 'ps3') ? 'selected' : '';?>>PS3</option>
@@ -29,8 +29,8 @@
 
 <?php if(isset($playername) AND !empty($playername)) : ?>
     <p>
-        <a href="http://bf3stats.com/stats_<?php echo $platform . '/' . $playername; ?>" target="_blank"><input class="button" value="Update at bf3stats.com"></a>
+        <a href="http://bf3stats.com/stats_<?php echo $platform . '/' . $playername; ?>" target="_blank"><input class="button" value="<?php _e('Update at bf3stats.com', 'bf3infobox'); ?>"></a>
 
     </p>
 <?php endif; ?>
-Info: Save to clear internal 60min cache and reload Stats from bf3stats.com (Update manualy before!)
+<?php _e('Info: Save to clear internal 60min cache and reload Stats from bf3stats.com (Update manualy before!)', 'bf3infobox'); ?>

@@ -5,10 +5,10 @@ class bf3infobox extends WP_Widget
     public function __construct()
     {
         $params = array(
-            'description' => 'Display a widget with your Battlefield 3 (BF3) stats',
-            'name'        => 'BF3 Player Infobox'
+            'description' => __('Display a widget with your Battlefield 3 stats', 'bf3infobox'),
+            'name'        => __('BF3 Player Infobox', 'bf3infobox')
         );
-        parent::__construct('bf3infobox','',$params);
+        parent::__construct('bf3infobox',__('BF3 Player Infobox', 'bf3infobox'),$params);
     }
 
     public function form($instance)
@@ -43,12 +43,11 @@ class bf3infobox extends WP_Widget
         $api = new bf3stats_api();
         $data = $api->getPlayerStats($instance['playername'],$platform);
 
-        if(!isset($title))    $title    = 'BF3 Infobox';
+        if(!isset($title) OR empty($title))    $title    = __('BF3 Player Infobox', 'bf3infobox');
 
         $title = apply_filters('widget_title', $title);
         include(dirname( __FILE__ ) .'/../views/infobox.phtml');
     }
-
 
 }
 

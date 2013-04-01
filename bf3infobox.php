@@ -3,10 +3,37 @@
 Plugin Name: Battlefield 3 Info
 Plugin URI: https://github.com/Calaelen/wordpress-bf3info-plugin
 Description: 2013 Update! Display your Battlefield 3 Player Statistics from bf3stats.com in a sidebar widget. <strong>Show/hide values via the settings</strong> (e.g. hide Origin username).
+Version: 0.3
+License: GPLv2 or later
 Author: Calaelen
 Author URI: http://www.calaelen.com/about/
-Version: 0.2
+Text Domain: bf3infobox
+Domain Path: /languages
 */
+
+/*
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+
+if ( !function_exists( 'add_action' ) ) {
+	echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
+	exit;
+}
+
+define('BF3_INFOBOX_VERSION', 0.3);
+
 require_once(dirname( __FILE__ ) . '/inc/bf3stats-api.php');
 require_once(dirname( __FILE__ ) . '/inc/bf3infobox-widget.php');
 require_once(dirname( __FILE__ ) . '/inc/bf3infobox-options.php');
@@ -51,5 +78,12 @@ function set_plugin_meta($links, $file) {
         );
     }
     return $links;
+}
+
+//---------------------- Translation Files ---------------------//
+add_action('init', 'bf3infobox_load_plugin_textdomain');
+function bf3infobox_load_plugin_textdomain() {
+    $plugin_path = plugin_basename( dirname( __FILE__ ) .'/languages' );
+    load_plugin_textdomain( 'bf3infobox', '', $plugin_path );
 }
 
