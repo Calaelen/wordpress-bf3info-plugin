@@ -6,6 +6,8 @@ Author URI: http://www.calaelen.com/about/
 Tags: bf3, battlefield3, battlefield, widget, player, api
 Requires at least: 3.1
 Tested up to: 3.5.1
+Stable tag: trunk
+License: GPLv2 or later
 
 
 Display your Battlefield 3 Player Statistics from bf3stats.com in a sidebar widget.
