@@ -1,4 +1,4 @@
-Battlefield 3 Info - a WordPress Plugin
+BF3 Infobox - a Battlefield3 WordPress Plugin
 =============
 
 WordPress Plugin / Widget that displays Battlefield 3 player statistics utilizing the bf3stats.com API.
