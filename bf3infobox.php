@@ -3,8 +3,8 @@
 Plugin Name: Battlefield 3 Infobox
 Plugin URI: https://github.com/Calaelen/wordpress-bf3info-plugin
 Description: 2013 Update! Display your Battlefield 3 Player Statistics from bf3stats.com in a sidebar widget. <strong>Show/hide values via the settings</strong> (e.g. hide Origin username).
-Version: 0.3
-License: GPLv2 or later
+Version: 1.0
+License: GPLv3 or later
 Author: Calaelen
 Author URI: http://www.calaelen.com/about/
 Text Domain: bf3infobox
@@ -32,7 +32,7 @@ if ( !function_exists( 'add_action' ) ) {
 	exit;
 }
 
-define('BF3_INFOBOX_VERSION', 0.3);
+define('BF3_INFOBOX_VERSION', 1.0);
 if( !class_exists( 'WP_Http' ) ) { include_once( ABSPATH . WPINC. '/class-http.php' ); }
 
 require_once(dirname( __FILE__ ) . '/inc/bf3stats-api.php');
