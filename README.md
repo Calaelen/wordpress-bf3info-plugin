@@ -4,9 +4,9 @@ Battlefield 3 Info - a WordPress Plugin
 WordPress Plugin / Widget that displays Battlefield 3 player statistics utilizing the bf3stats.com API.
 Feel free to download the Zip-Archiv and install it via your WordPress Admin. On your own risk ;-)
 
+* Official download at WordPress Plugin Repro: http://wordpress.org/extend/plugins/bf3-infobox/
 * GitHub Repro for Beta / Dev Builds
 * no support via email/phone - use the github issue tracker
-* Plugin will be submited to the WordPress Repro after it reaches release status (V1.0)
 
 Live Examples (Beta-Testers)
 ----------
