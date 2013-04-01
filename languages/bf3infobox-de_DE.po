@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Battlefield 3 Info v0.3\n"
+"Project-Id-Version: Battlefield 3 Infobox v0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-01 09:04+0100\n"
-"PO-Revision-Date: 2013-04-01 07:32:12+0000\n"
+"PO-Revision-Date: 2013-04-01 10:29:07+0000\n"
 "Last-Translator: Calaelen <info@calaelen.com>\n"
 "Language-Team: Calaelen <info@calaelen.com>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 "X-Textdomain-Support: yes"
 
-#: bf3infobox.php:77
+#: bf3infobox.php:78
 #@ default
 msgid "Settings"
 msgstr "Einstellungen"
@@ -63,7 +63,7 @@ msgstr "Zeige ein Widget mit deinen Battlefield 3 Statistiken."
 
 #: inc/bf3infobox-widget.php:9
 #: inc/bf3infobox-widget.php:11
-#: inc/bf3infobox-widget.php:46
+#: inc/bf3infobox-widget.php:50
 #@ bf3infobox
 msgid "BF3 Player Infobox"
 msgstr "BF3 Spieler Infobox"
@@ -134,12 +134,6 @@ msgstr "Längster Kopftreffer"
 msgid "more statistics"
 msgstr "mehr Statistiken"
 
-#. translators: plugin header field 'Name'
-#: bf3infobox.php:0
-#@ bf3infobox
-msgid "Battlefield 3 Info"
-msgstr "Battlefield 3 Info"
-
 #. translators: plugin header field 'PluginURI'
 #: bf3infobox.php:0
 #@ bf3infobox
@@ -150,7 +144,7 @@ msgstr "https://github.com/Calaelen/wordpress-bf3info-plugin"
 #: bf3infobox.php:0
 #@ bf3infobox
 msgid "2013 Update! Display your Battlefield 3 Player Statistics from bf3stats.com in a sidebar widget. <strong>Show/hide values via the settings</strong> (e.g. hide Origin username)."
-msgstr "2013 Update! Zeige deine Battlefield 3 Spieler Statistiken von bf3stats.com in einem sidebar widget. <strong>Einzelne Werte können über die Einstellungen ein-/ausgeblendet werden</strong> (z.B. Origin Username ausblenden)."
+msgstr "2013 Update! Zeige deine Battlefield 3 Spieler Statistiken von bf3stats.com in einem Sidebar Widget. <strong>Einzelne Werte können über die Einstellungen ein-/ausgeblendet werden</strong> (z.B. Origin Username ausblenden)."
 
 #. translators: plugin header field 'Author'
 #: bf3infobox.php:0
@@ -169,4 +163,10 @@ msgstr "http://www.calaelen.com/about/"
 #@ bf3infobox
 msgid "0.3"
 msgstr "0.3"
+
+#. translators: plugin header field 'Name'
+#: bf3infobox.php:0
+#@ bf3infobox
+msgid "Battlefield 3 Infobox"
+msgstr "Battlefield 3 Infobox"
 

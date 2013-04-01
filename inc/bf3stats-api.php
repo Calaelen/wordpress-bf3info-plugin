@@ -24,33 +24,26 @@ class bf3stats_api
         $postdata=array();
         $postdata['player'] = $playername;
         $postdata['opt']= 'all';
+        $url = 'http://api.bf3stats.com/'.$platform.'/player/';
+        $args = array('body' => $postdata);
 
-        // Run POST Request via CURL - more infos: http://bf3stats.com/api
-        $c=curl_init('http://api.bf3stats.com/'.$platform.'/player/');
-        curl_setopt($c,CURLOPT_HEADER,false);
-        curl_setopt($c,CURLOPT_POST,true);
-        curl_setopt($c,CURLOPT_USERAGENT,'BF3StatsAPI/0.1');
-        curl_setopt($c,CURLOPT_HTTPHEADER,array('Expect:'));
-        curl_setopt($c,CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($c,CURLOPT_POSTFIELDS,$postdata);
-        $data=curl_exec($c);
-        $statuscode=curl_getinfo($c,CURLINFO_HTTP_CODE);
-        curl_close($c);
+        // Send POST Request to bf3stats API - more infos: http://bf3stats.com/api
+        $response = wp_remote_post( $url, $args );
 
-        if($statuscode==200) {
-            $data=json_decode($data,true);
+        if( is_wp_error( $response ) ) {
+            $this->errormsg = "BF3 Stats API error status: ".$response->get_error_message();
+            return false;
+        } else {
+            $data=json_decode($response['body'],true);
             if($data['status'] != 'data') {
-                $this->errormsg = $data['status'];
+                ($data['error']) ? $errorinfos = " - ".$data['error'] : $errorinfos = '';
+                $this->errormsg = "BF3stats.com API Error: " . $data['status'] . $errorinfos;
                 return false;
             }
             $this->errormsg = '';
             $this->savePlayerCache($playername, $data);
             return $data;
-        } else {
-            $this->errormsg = "BF3 Stats API error status: ".$statuscode;
-            return false;
         }
-
 
     }
 

@@ -42,6 +42,10 @@ class bf3infobox extends WP_Widget
 
         $api = new bf3stats_api();
         $data = $api->getPlayerStats($instance['playername'],$platform);
+        if($data === false) {
+            echo $api->getErrorMsg().'<br>';
+            return;
+        }
 
         if(!isset($title) OR empty($title))    $title    = __('BF3 Player Infobox', 'bf3infobox');
 
