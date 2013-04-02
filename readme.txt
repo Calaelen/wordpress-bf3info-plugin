@@ -3,17 +3,16 @@ Contributors: Calaelen
 Plugin URI: https://github.com/Calaelen/wordpress-bf3info-plugin
 Author: Calaelen
 Author URI: http://www.calaelen.com/about/
-Tags: bf3, battlefield3, battlefield, widget, player, api
-Requires at least: 3.1
+Tags: bf3, bf4, battlefield3, battlefield, battlefield 3, widget, statistics, api
+Requires at least: 3.0
 Tested up to: 3.5.1
 Stable tag: trunk
 License: GPLv2 or later
 
-
-Display your Battlefield 3 Player Statistics from bf3stats.com in a sidebar widget.
+2013 Update! Display your Battlefield 3 Player Statistics from bf3stats.com as a sidebar widget.
 
 == Description ==
-* 2013 Update!
+* 2013 Update
 * display your Battlefield 3 Player Statistics from bf3stats.com
 * Insert additional widgets for other players or accounts
 * Show/hide values via the settings (e.g. hide Origin username)
@@ -41,6 +40,9 @@ There will be no support within this WordPress page/forum. Please use the issue 
 3. BF3 Infobox Options
 
 == Changelog ==
+= 1.0.1 =
+* CSS fix for widget table and rank symbol display
+
 = 1.0  =
 * First submission to WordPress Plugin Repro
 
@@ -54,4 +56,4 @@ API Infos: [bf3stats.com/api](http://bf3stats.com/api "http://bf3stats.com/api")
 Images by bf3stats.com and Dice/EA.
 
 = Licence =
-GPLv3, for more infos read the license.txt
+GPLv2 or later, please read the license.txt for more informations.

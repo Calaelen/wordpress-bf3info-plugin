@@ -5,7 +5,7 @@
 <p>
     <?php if(isset($options['display_playername'])) : ?>
         <a href="http://bf3stats.com/stats_<?php echo strtolower($data['plat']) ?>/<?php echo $data['name'] ?>/"
-           target="_blank"><img src="<?php echo plugins_url( 'img/'.$data['stats']['rank']['img_medium'] , dirname(__FILE__) ) ?>"
+           target="_blank" class="rankimagelink"><img src="<?php echo plugins_url( 'img/'.$data['stats']['rank']['img_medium'] , dirname(__FILE__) ) ?>"
          title="Rank <?php echo $data['stats']['rank']['nr'] ?>"
          style="margin-top: 5px;"></a>
     <?php else: ?>
@@ -43,7 +43,7 @@
 
     <?php if(isset($options['display_tillnextrank'])) : ?>
         <tr>
-            <td colspan="5">
+            <td colspan="5" class="center">
             <?php
                 $rankscore = $data['stats']['nextranks'][0]['score'] - $data['stats']['rank']['score'];
                 $progress = round(($rankscore - $data['stats']['nextranks'][0]['left']) / ($rankscore / 100), 0).'%';

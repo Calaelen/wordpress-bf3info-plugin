@@ -8,6 +8,8 @@ Feel free to download the Zip-Archiv and install it via your WordPress Admin. On
 * GitHub Repro for Beta / Dev Builds
 * no support via email/phone - use the github issue tracker
 
+**Important: You can only activate one version at the same time** - GitHub Beta Zip-Archiv or official stable WordPress Repro Installation (same namespace, different directory names)
+
 Live Examples (Beta-Testers)
 ----------
 http://www.calaelen.com
